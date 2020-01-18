@@ -3,15 +3,21 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
+import AppHook from "./AppHook";
 
 const rerenderApp = () => {
-    ReactDOM.render(<App />, document.getElementById('root'));
+    age++;
+    ReactDOM.render(
+        <>
+            {/*<App/>*/}
+            <AppHook age={age}/>
+        </>
+        , document.getElementById('root'));
 };
-
+let age = 18;
 rerenderApp();
 
 setInterval(rerenderApp, 5000);
-
 
 
 // If you want your app to work offline and load faster, you can change

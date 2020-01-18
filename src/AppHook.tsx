@@ -1,17 +1,28 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import './App.css';
 
-const AppHook = () => {
-    let [value, setCounter] = useState(0);
-    let counter = () => {
-        setCounter(value + 1)
-    };
+interface IProps {
+    age: number
+}
+
+const AppHook: React.FC<IProps> = (props) => {
+    const [counter, setCounter] = useState(0);
+
+    useEffect(() => {
+        console.log(props.age);
+    }, [props.age])
+
+    const counterPlus = () => {
+        setCounter(counter + 1)
+    }
+
+    console.log('render AppHook');
     return (
         <div className="App">
-            <header className="App-header">
-                <button onClick={counter}>inc</button>
-                <h3>count: {value}</h3>
-            </header>
+            <div className='Counter'>{counter}; age: {props.age}</div>
+            <div>
+                <button onClick={counterPlus}>Inc</button>
+            </div>
         </div>
     );
 };
