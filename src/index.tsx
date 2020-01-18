@@ -6,7 +6,7 @@ import * as serviceWorker from './serviceWorker';
 
 const rerenderApp = () => {
     ReactDOM.render(<App />, document.getElementById('root'));
-}
+};
 
 rerenderApp();
 
