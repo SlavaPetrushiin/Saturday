@@ -7,6 +7,10 @@ class App extends React.Component {
         console.log("componentDidMount");
     }
 
+    componentDidUpdate() {
+        console.log('ComponentDidUpdate');
+    }
+
     render() {
     return (
         <div className="App">
